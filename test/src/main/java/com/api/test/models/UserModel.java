@@ -1,18 +1,19 @@
 package com.api.test.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class UserModel {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO, generator = "id")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     private String name;
 
-    @Column
+    @Column(name="last_name") @JsonProperty("last_name")
     private String lastName;
 
     @Column
